@@ -14,9 +14,11 @@ args = parser.parse_args()
 
 number = args.number
 
-if number <= 1 or number > 100000:
-    logging.error('Число должно быть больше 1 и меньше 100000!')
-elif (number % 2 != 0 or number == 2) and (number % 3 != 0 or number == 3):
+count = 0
+for i in range(2, number // 2 + 1):
+    if (number % i == 0):
+        count += 1
+if (count <= 0):
     logging.info(f'число {number} является простым числом')
 else:
     logging.info(f'число {number} является составным числом')
